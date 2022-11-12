@@ -5,35 +5,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    InputAction movement;
+    [SerializeField] InputAction movement;
+    [SerializeField] float controlSpeed = 10f;
+
+    [SerializeField]  float xMin = -17f;
+    [SerializeField] float xMax = 17f;
+    [SerializeField] float yMin = -8f;
+    [SerializeField] float yMax = 10f;
 
     [SerializeField]
-    float controlSpeed = 10f;
+    float pitchFactor = -2f;
 
     [SerializeField]
-    float xMin = -5f;
+    float controlPitchFactor = -20f;
 
     [SerializeField]
-    float xMax = 5f;
+    float yawFactor = 4f;
 
     [SerializeField]
-    float yMin = -5f;
+    float controlRollFactor = -20f;
 
-    [SerializeField]
-    float yMax = 5f;
-
-    [SerializeField]
-    GameObject leftUpperWing;
-
-    [SerializeField]
-    GameObject leftLowerWing;
-
-    [SerializeField]
-    GameObject rightUpperWing;
-
-    [SerializeField]
-    GameObject rightLowerWing;
+    float xThrow;
+    float yThrow;
 
     Animator thisAnimator;
     AnimationClip idle;
@@ -54,11 +47,16 @@ public class PlayerController : MonoBehaviour
         movement.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float xThrow = movement.ReadValue<Vector2>().x;
-        float yThrow = movement.ReadValue<Vector2>().y;
+        ProcessTranslation();
+        ProcessRotation();
+    }
+
+    void ProcessTranslation()
+    {
+        xThrow = movement.ReadValue<Vector2>().x;
+        yThrow = movement.ReadValue<Vector2>().y;
 
         float xOffset = xThrow * Time.deltaTime * controlSpeed;
         float rawXPos = transform.localPosition.x + xOffset;
@@ -69,6 +67,18 @@ public class PlayerController : MonoBehaviour
         float clampedYPos = Mathf.Clamp(rawYPos, yMin, yMax);
 
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+
+    void ProcessRotation()
+    {
+        float pitchDueToPosition = transform.localPosition.y * pitchFactor;
+        float pitchDueToControl = yThrow * controlPitchFactor;
+
+        float pitch = pitchDueToPosition + pitchDueToControl;
+        float yaw = transform.localPosition.x * yawFactor;
+        float roll = xThrow * controlRollFactor;
+
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
     void WingFlap() { }
