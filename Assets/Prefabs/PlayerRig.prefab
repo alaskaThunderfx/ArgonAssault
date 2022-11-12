@@ -8667,7 +8667,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 897cd8dfc98d1a3419beb6bccbf65e82, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -8779,6 +8779,10 @@ MonoBehaviour:
   xMax: 17
   yMin: -8
   yMax: 10
+  leftUpperWing: {fileID: 0}
+  leftLowerWing: {fileID: 0}
+  rightUpperWing: {fileID: 0}
+  rightLowerWing: {fileID: 0}
 --- !u!1 &8056916122715683763
 GameObject:
   m_ObjectHideFlags: 0
