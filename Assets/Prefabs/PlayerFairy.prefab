@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8303272020227470236}
   - component: {fileID: 8243200746516429824}
-  - component: {fileID: 2089573822988943356}
+  - component: {fileID: 5644928839978663325}
   m_Layer: 0
   m_Name: PlayerFairy
   m_TagString: Untagged
@@ -295,7 +295,7 @@ Transform:
   - {fileID: 8303271285815919974}
   - {fileID: 8296937831369311566}
   - {fileID: 8296975248890276908}
-  - {fileID: 5912212483185471557}
+  - {fileID: 9002854478185897314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -318,7 +318,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2089573822988943356
+--- !u!114 &5644928839978663325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -330,100 +330,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20388c52cacaf264f97a69b86d0183df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement:
-    m_Name: Movement
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 1a2a6ef1-1358-420d-b147-715c43711e95
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: a015138b-a2c7-4097-b240-af0a9d49a84e
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 27b3ad81-cb06-4c3c-9a3a-2d13b8852f7e
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 2457f5e6-9a7d-4587-b954-007168bc12c0
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: left
-      m_Id: a29a4527-593e-4d1c-90d2-45f48d66dc38
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 70fa467f-718b-44a3-a086-893142fcafcc
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: 2D Vector
-      m_Id: 5c7a6384-c38f-4c34-a966-1363c5fa0b88
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: up
-      m_Id: ea121c4a-bd30-4dc3-aa5f-93a4a81190ba
-      m_Path: <Gamepad>/leftStick/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 97aa1989-3cbf-449d-b581-8bbe63a2026f
-      m_Path: <Gamepad>/leftStick/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 05065732-d334-4e95-b88d-9853e03990a1
-      m_Path: <Gamepad>/leftStick/left
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 20b2f7ba-f380-41ce-a14e-0edae4fa4c72
-      m_Path: <Gamepad>/leftStick/right
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    m_Flags: 0
-  controlSpeed: 30
-  xMin: -17
-  xMax: 17
-  yMin: -8
-  yMax: 10
+  controlSpeed: 20
+  xMin: -13.5
+  xMax: 13.5
+  yMin: -2
+  yMax: 14
+  magicMissile:
+  - {fileID: 4595800289643093670}
+  - {fileID: 9002854478483608467}
   pitchFactor: -2
   controlPitchFactor: -20
   yawFactor: 4
@@ -8779,7 +8693,7 @@ Transform:
   m_Father: {fileID: 8296988378273425280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.1504445, y: 0.53968483, z: 15.903594}
---- !u!1001 &3178136924951485172
+--- !u!1001 &209407688317171667
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8836,8 +8750,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002eabed66ba0c94e94772d4cd2a8bd5, type: 3}
---- !u!4 &5912212483185471557 stripped
+--- !u!4 &9002854478185897314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9085844419079269041, guid: 002eabed66ba0c94e94772d4cd2a8bd5, type: 3}
-  m_PrefabInstance: {fileID: 3178136924951485172}
+  m_PrefabInstance: {fileID: 209407688317171667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4595800289643093670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4404633879910099317, guid: 002eabed66ba0c94e94772d4cd2a8bd5, type: 3}
+  m_PrefabInstance: {fileID: 209407688317171667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9002854478483608467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9085844418781357120, guid: 002eabed66ba0c94e94772d4cd2a8bd5, type: 3}
+  m_PrefabInstance: {fileID: 209407688317171667}
   m_PrefabAsset: {fileID: 0}

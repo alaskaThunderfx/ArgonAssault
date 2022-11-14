@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,25 +6,46 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] InputAction movement;
-    [SerializeField] float controlSpeed = 10f;
+    private PlayerControls playerControls;
 
-    [SerializeField]  float xMin = -13.5f;
-    [SerializeField] float xMax = 13.5f;
-    [SerializeField] float yMin = -2f;
-    [SerializeField] float yMax = 12f;
+    [Header("Control Settings")]
+    [SerializeField]
+    [Tooltip("Speed that fairy moves")]
+    float controlSpeed = 20f;
 
+    [SerializeField]
+    [Tooltip("Minimum horizontal distance fairy can move.")]
+    float xMin = -13.5f;
+
+    [SerializeField]
+    [Tooltip("Maximum horizontal distance fairy can travel.")]
+    float xMax = 13.5f;
+
+    [SerializeField]
+    [Tooltip("Minimum vertical distance fairy can travel.")]
+    float yMin = -2f;
+
+    [SerializeField]
+    [Tooltip("Maximum veritcal distance fairy can travel.")]
+    float yMax = 14f;
+
+    [Header("Screen Position Based Tuning")]
     [SerializeField]
     float pitchFactor = -2f;
 
     [SerializeField]
+    float yawFactor = 4f;
+
+    [Header("Player Input Based Tuning")]
+    [SerializeField]
     float controlPitchFactor = -20f;
 
     [SerializeField]
-    float yawFactor = 4f;
-
-    [SerializeField]
     float controlRollFactor = -20f;
+
+    [Header("Magic Missile")]
+    [SerializeField]
+    GameObject[] magicMissile;
 
     float xThrow;
     float yThrow;
@@ -31,32 +53,34 @@ public class PlayerController : MonoBehaviour
     Animator thisAnimator;
     AnimationClip idle;
 
-    void Start()
+    void Awake()
     {
-        thisAnimator = GetComponent<Animator>();
-        // idle = thisAnimator.GetBehaviour
+        playerControls = new PlayerControls();
     }
+
+    void Start() { }
 
     void OnEnable()
     {
-        movement.Enable();
+        playerControls.Enable();
     }
 
     void OnDisable()
     {
-        movement.Disable();
+        playerControls.Disable();
     }
 
     void Update()
     {
         ProcessTranslation();
         ProcessRotation();
+        ProcessFiring();
     }
 
     void ProcessTranslation()
     {
-        xThrow = movement.ReadValue<Vector2>().x;
-        yThrow = movement.ReadValue<Vector2>().y;
+        xThrow = playerControls.Fairy.Move.ReadValue<Vector2>().x;
+        yThrow = playerControls.Fairy.Move.ReadValue<Vector2>().y;
 
         float xOffset = xThrow * Time.deltaTime * controlSpeed;
         float rawXPos = transform.localPosition.x + xOffset;
@@ -81,5 +105,22 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
-    void WingFlap() { }
+    void ProcessFiring()
+    {
+        if (playerControls.Fairy.Fire.ReadValue<float>() == 1)
+        {
+            SetMagicMissileActive(true);
+        }
+        else
+        {
+            SetMagicMissileActive(false);
+        }
+    }
+
+    void SetMagicMissileActive(bool isActive)
+    {
+        var emissionModule = magicMissile[1].GetComponent<ParticleSystem>().emission;
+        emissionModule.enabled = isActive;
+        magicMissile[0].SetActive(isActive);
+    }
 }
