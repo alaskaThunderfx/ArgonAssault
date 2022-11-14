@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputAction movement;
     [SerializeField] float controlSpeed = 10f;
 
-    [SerializeField]  float xMin = -17f;
-    [SerializeField] float xMax = 17f;
-    [SerializeField] float yMin = -8f;
-    [SerializeField] float yMax = 10f;
+    [SerializeField]  float xMin = -13.5f;
+    [SerializeField] float xMax = 13.5f;
+    [SerializeField] float yMin = -2f;
+    [SerializeField] float yMax = 12f;
 
     [SerializeField]
     float pitchFactor = -2f;
