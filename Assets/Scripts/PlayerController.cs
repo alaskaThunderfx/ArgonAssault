@@ -31,17 +31,17 @@ public class PlayerController : MonoBehaviour
 
     [Header("Screen Position Based Tuning")]
     [SerializeField]
-    float pitchFactor = -2f;
+    float pitchFactor = -1f;
 
     [SerializeField]
-    float yawFactor = 4f;
+    float yawFactor = 2f;
 
     [Header("Player Input Based Tuning")]
     [SerializeField]
-    float controlPitchFactor = -20f;
+    float controlPitchFactor = -10f;
 
     [SerializeField]
-    float controlRollFactor = -20f;
+    float controlRollFactor = -10f;
 
     [Header("Magic Missile")]
     [SerializeField]
@@ -123,4 +123,6 @@ public class PlayerController : MonoBehaviour
         emissionModule.enabled = isActive;
         magicMissile[0].SetActive(isActive);
     }
+
+    
 }
