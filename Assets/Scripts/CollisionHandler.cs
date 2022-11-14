@@ -11,6 +11,10 @@ public class CollisionHandler : MonoBehaviour
 
     [SerializeField]
     GameObject deathParticles;
+
+    [SerializeField]
+    ParticleSystem petalSparkleParticles;
+
     [SerializeField]
     Collider coll;
 
@@ -55,6 +59,7 @@ public class CollisionHandler : MonoBehaviour
     {
         GetComponent<PlayerController>().enabled = false;
         deathParticles.SetActive(true);
+        petalSparkleParticles.Stop();
         coll.enabled = false;
         isDying = true;
         rb.useGravity = true;

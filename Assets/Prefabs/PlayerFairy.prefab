@@ -5178,6 +5178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadDelay: 4
   deathParticles: {fileID: 9039903922491408275}
+  petalSparkleParticles: {fileID: 8181774121915329244}
   coll: {fileID: 8488066930047431922}
   rb: {fileID: 2835117456808798722}
   deathMaterial: {fileID: 2100000, guid: f2e35808a3933b64c847158dbd6000e9, type: 2}
