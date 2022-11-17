@@ -1310,7 +1310,7 @@ Transform:
   m_GameObject: {fileID: 6808808314918483761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.523169, y: -13.183254, z: -14.161846}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 6808808314918841213}
   - {fileID: 6808808314918841173}
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32fd93965a09a64da611991a47b4984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  instantiateContainer: {fileID: 0}
   health: 2
   enemyExplosionVFX: {fileID: 3732472176923401194, guid: 43bddb612f924274cbf6721a2391d963, type: 3}
   enemyHitVFX: {fileID: 5581123773653223225, guid: afb0b8515d60bca468fb7fbfb52c4dd4, type: 3}
